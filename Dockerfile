@@ -15,7 +15,6 @@ RUN bash ./scripts/download_cyclegan_model.sh apple2orange
 RUN bash ./scripts/download_cyclegan_model.sh summer2winter_yosemite
 RUN bash ./scripts/download_cyclegan_model.sh horse2zebra
 RUN bash ./scripts/download_cyclegan_model.sh monet2photo
-RUN bash ./scripts/download_cyclegan_model.sh facades
 RUN bash ./scripts/download_cyclegan_model.sh iphone2dslr_flower
 RUN bash ./datasets/download_cyclegan_dataset.sh apple2orange
 RUN bash ./datasets/download_cyclegan_dataset.sh summer2winter_yosemite
