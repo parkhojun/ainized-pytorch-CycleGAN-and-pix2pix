@@ -10,6 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 RUN apt-get -y install nodejs
 RUN git clone https://github.com/parkhojun/ainized-pytorch-CycleGAN-and-pix2pix.git
 WORKDIR /workspace/-pytorch-CycleGAN-and-pix2pix
+RUN bash ./datasets/download_cyclegan_dataset.sh maps
 RUN bash ./scripts/download_cyclegan_model.sh apple2orange
 RUN bash ./scripts/download_cyclegan_model.sh summer2winter_yosemite
 RUN bash ./scripts/download_cyclegan_model.sh horse2zebra
