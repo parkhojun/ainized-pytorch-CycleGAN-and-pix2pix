@@ -22,10 +22,7 @@ RUN bash ./datasets/download_cyclegan_dataset.sh horse2zebra
 RUN bash ./datasets/download_cyclegan_dataset.sh monet2photo
 RUN bash ./datasets/download_cyclegan_dataset.sh facades
 RUN bash ./datasets/download_cyclegan_dataset.sh iphone2dslr_flower
-RUN bash ./scripts/download_pix2pix_model.sh edges2shoes
-RUN bash ./scripts/download_pix2pix_model.sh sat2map
-RUN bash ./datasets/download_pix2pix_dataset.sh edges2shoes
-RUN bash ./datasets/download_pix2pix_dataset.sh sat2map
+
 
 
 
