@@ -52,17 +52,7 @@ window.onload = () => {
             let fileDisplayEl = document.createElement('li');
             fileDisplayEl.style.padding = "3px";
 
-            let button = document.createElement('button');
-            button.style.marginLeft = "3px";
-            button.type = "button"
-            button.innerText = 'RUN';
-            button.className = "btn btn-success btn-sm"
-            button.value = file.name;
-
-            //button.onclick = fetchEvalSingle;
-
             fileDisplayEl.innerHTML = file.name;
-            fileDisplayEl.append(button);
             fileListDisplay.appendChild(fileDisplayEl);
         });
     };
