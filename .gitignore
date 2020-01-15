@@ -1,6 +1,7 @@
 .DS_Store
 debug*
 checkpoints/
+datasets/
 results/
 build/
 dist/
