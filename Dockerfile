@@ -25,14 +25,10 @@ RUN bash ./datasets/download_cyclegan_dataset.sh facades
 RUN bash ./datasets/download_cyclegan_dataset.sh iphone2dslr_flower
 
 RUN bash ./scripts/download_pix2pix_model.sh facades_label2photo
-RUN bash ./scripts/download_pix2pix_model.sh edges2shoes
-RUN bash ./scripts/download_pix2pix_model.sh sat2map
 RUN bash ./scripts/download_pix2pix_model.sh map2sat
 RUN bash ./scripts/download_pix2pix_model.sh day2night
 RUN bash ./datasets/download_pix2pix_dataset.sh facades
-RUN bash ./datasets/download_pix2pix_dataset.sh cityscapes
 RUN bash ./datasets/download_pix2pix_dataset.sh night2day
-RUN bash ./datasets/download_pix2pix_dataset.sh edges2shoes
 RUN bash ./datasets/download_pix2pix_dataset.sh maps
 
 RUN rm -rf ./datasets/apple2orange/testA
