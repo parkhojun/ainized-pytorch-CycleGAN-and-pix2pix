@@ -6,7 +6,7 @@ let router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
     console.log(11);
-    exec("python test.py --dataroot datasets/summer2winter_yosemite/testA --name summer2winter_yosemite_pretrained --model test --no_dropout", (error, stdout, stderr) => {
+    exec("python test.py --dataroot datasets/horse2zebra/testA --name horse2zebra_pretrained --model test --no_dropout", (error, stdout, stderr) => {
         if (!error) {
             res.json({ "msg": stdout });
         } else {

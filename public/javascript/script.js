@@ -89,7 +89,7 @@ window.onload = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 document.getElementById("result").style.display = "block";
                 //document.getElementById("log").innerText = "Success!";
-                document.getElementById('rimg').src = 'results/summer2winter_yosemite_pretrained/test_latest/images/input_fake_B.png';
+                document.getElementById('rimg').src = 'results/horse2zebra_pretrained/test_latest/images/input_fake_B.png';
             }
         };
         xhr.send(null);
