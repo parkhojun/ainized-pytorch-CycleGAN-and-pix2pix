@@ -33,20 +33,21 @@ RUN bash ./datasets/download_pix2pix_dataset.sh maps
 
 RUN rm -rf ./datasets/apple2orange/testA
 RUN mkdir ./datasets/apple2orange/testA
-RUN rm -rf ./datasets/facades/testA
-RUN mkdir ./datasets/facades/testA
 RUN rm -rf ./datasets/horse2zebra/testA
 RUN mkdir ./datasets/horse2zebra/testA
 RUN rm -rf ./datasets/iphone2dslr_flower/testA
 RUN mkdir ./datasets/iphone2dslr_flower/testA
-RUN rm -rf ./datasets/maps/testA
-RUN mkdir ./datasets/maps/testA
 RUN rm -rf ./datasets/monet2photo/testA
 RUN mkdir ./datasets/monet2photo/testA
-RUN rm -rf ./datasets/night2day/testA
-RUN mkdir ./datasets/night2day/testA
 RUN rm -rf ./datasets/summer2winter_yosemite/testA
 RUN mkdir ./datasets/summer2winter_yosemite/testA
+RUN rm -rf ./datasets/maps/test
+RUN mkdir ./datasets/maps/test
+RUN rm -rf ./datasets/facades/test
+RUN mkdir ./datasets/facades/test
+RUN rm -rf ./datasets/night2day/test
+RUN mkdir ./datasets/night2day/test
+
 
 
 
@@ -55,11 +56,9 @@ RUN mkdir ./datasets/summer2winter_yosemite/testA
 
 RUN rm -rf node_modules && npm install
 
-COPY package.json .
-RUN npm install
-RUN npm install sync-exec
-
 COPY . .
+RUN npm install
+RUN mkdir -p ./uploaded
 EXPOSE 80
 ENTRYPOINT npm start
 

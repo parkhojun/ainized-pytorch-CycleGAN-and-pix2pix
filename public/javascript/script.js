@@ -1,3 +1,19 @@
+let model;
+let option = "";
+
+if(option === 'maps'){
+    model = "pix2pix";
+}
+else if(option === 'facades'){
+    model = "pix2pix";
+}
+else if(option === 'night2day'){
+    model = "pix2pix";
+}
+else{
+    model = "cyclegan";
+}
+
 window.onload = () => {
     let fileCatcher = document.getElementById('file-catcher');
     let fileInput = document.getElementById('file-input');
@@ -34,8 +50,13 @@ window.onload = () => {
     fileCatcher.addEventListener('submit', async (event) => {
         event.preventDefault();
         start_timer();
-        await uploadFile(fileList);
-        fetchEval();
+        const filename = await uploadFile(fileList);
+        
+        if (model === "cyclegan"){
+        fetchEval(filename, model, option);
+        }else{
+            fetchEvalpix2pix(filename, model, option);
+        }
     });
 
     fileInput.addEventListener('change', (event) => {
@@ -63,7 +84,7 @@ window.onload = () => {
             files.forEach(file => formData.append("files", file));
 
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", '/upload');
+            xhr.open("POST", '/upload?option=' + option);
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     const data = JSON.parse(xhr.responseText);
@@ -71,7 +92,7 @@ window.onload = () => {
                     if (!data["status"]) {
                         sendFile(file);
                     } else {
-                        resolve();
+                        resolve(data["filename"]);
                     }
                 }
             };
@@ -79,17 +100,46 @@ window.onload = () => {
         });
     };
 
-    function fetchEval() {
+    function fetchEval(filename, model, option) {
         const xhr = new XMLHttpRequest();
         xhr.timeout = 1000 * 30000;
-        xhr.open("GET", encodeURI(`/eval`), true);
+        xhr.open("GET", encodeURI(`/eval/` + model + '?option=' + option), true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = () => {
             stop_timer();
             if (xhr.readyState === 4 && xhr.status === 200) {
                 document.getElementById("result").style.display = "block";
-                //document.getElementById("log").innerText = "Success!";
-                document.getElementById('rimg').src = 'results/horse2zebra_pretrained/test_latest/images/input_fake_B.png';
+                let filename_without_ext = filename.split('.')[0];
+                document.getElementById('rimg').src = 'results/' +  option + '_pretrained/test_latest/images/' + filename_without_ext + '_fake_B.png';
+            }
+        };
+        xhr.send(null);
+    }
+
+    function fetchEvalpix2pix(filename, model, option) {
+        const xhr = new XMLHttpRequest();
+        xhr.timeout = 1000 * 30000;
+        xhr.open("GET", encodeURI(`/eval/` + model + '?option=' + option), true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = () => {
+            stop_timer();
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById("result").style.display = "block";
+                let filename_without_ext = filename.split('.')[0];
+                if(option === 'maps'){
+                    document.getElementById('rimg').src = 'results/map2sat_pretrained/test_latest/images/' + filename_without_ext + '_fake_B.png';
+                }
+                else if(option === 'facades'){
+                    document.getElementById('rimg').src = 'results/facades_label2photo_pretrained/test_latest/images/' + filename_without_ext + '_fake_B.png';
+
+                }
+                else if(option === 'night2day'){
+                    document.getElementById('rimg').src = 'results/day2night_pretrained/test_latest/images/' + filename_without_ext + '_fake_B.png';
+
+                }
+                else{
+                      }
+                //document.getElementById('rimg').src = 'results/' +  option + '_pretrained/test_latest/images/' + filename_without_ext + '_fake_B.png';
             }
         };
         xhr.send(null);

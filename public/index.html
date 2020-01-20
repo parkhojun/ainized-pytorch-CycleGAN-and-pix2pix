@@ -29,6 +29,45 @@
                     <ol id='file-list-display'></ol>
                 </div>
 
+                <div>
+                    Models:
+                    <input type="radio" name="model" value="cyclegan" checked onclick="changed('cyclegan')"> CycleGan
+                    <input type="radio" name="model" value="pix2pix" onclick="changed('pix2pix')"> pix2pix
+                    <script>
+                        function changed(_model){
+                            model = _model
+                            var radio_buttons = $('#file-catcher > div:nth-child(3) > input[type=radio]');
+                            if (radio_buttons[0].checked === true) {
+                                $('.cyclegan-options').show();
+                                $('.pix2pix-options').hide();
+                            } else if (radio_buttons[1].checked === true) {
+                                $('.cyclegan-options').hide();
+                                $('.pix2pix-options').show();
+                            }
+                        }
+                    </script>
+                </div>
+                <script>
+                    function changed_option(_option){
+                        option = _option;
+                    }
+                </script>
+                <div class="cyclegan-options">
+                    Options:
+                    <input type="radio" name="option" value="apple2orange" onclick="changed_option('apple2orange')"> apple2orange
+                    <input type="radio" name="option" value="summer2winter_yosemite"  onclick="changed_option('summer2winter_yosemite')"> summer2winter_yosemite
+                    <input type="radio" name="option" value="horse2zebra" onclick="changed_option('horse2zebra')"> horse2zebra
+                    <input type="radio" name="option" value="monet2photo" onclick="changed_option('monet2photo')"> monet2photo
+                    <input type="radio" name="option" value="iphone2dslr_flower" onclick="changed_option('iphone2dslr_flower')"> iphone2dslr_flower
+                </div>
+                <div class="pix2pix-options" style="display: none;">
+                    Options:
+                    <input type="radio" name="option" value="maps" onclick="changed_option('maps')"> maps
+                    <input type="radio" name="option" value="facades" onclick="changed_option('facades')"> facades
+                    <input type="radio" name="option" value="night2day" onclick="changed_option('night2day')"> day2night
+                </div>
+                <!-- WARNING: YOU SHOULD CHECK THE PAIR OF MODEL/OPTIONS IS SELECTED CORRECTLY BEFORE SUBMIT!-->
+
                 <div class="mt-3">
                     <button id="select" type="button" class="btn btn-light btn-lg">Select File</button>
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
