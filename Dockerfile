@@ -32,20 +32,48 @@ RUN bash ./datasets/download_pix2pix_dataset.sh night2day
 RUN bash ./datasets/download_pix2pix_dataset.sh maps
 
 RUN rm -rf ./datasets/apple2orange/testA
+RUN rm -rf ./datasets/apple2orange/testB
+RUN rm -rf ./datasets/apple2orange/trainA
+RUN rm -rf ./datasets/apple2orange/trainB
 RUN mkdir ./datasets/apple2orange/testA
+RUN rm -rf ./datasets/horse2zebra/testA
+RUN rm -rf ./datasets/horse2zebra/trainA
+RUN rm -rf ./datasets/horse2zebra/trainB
 RUN rm -rf ./datasets/horse2zebra/testA
 RUN mkdir ./datasets/horse2zebra/testA
 RUN rm -rf ./datasets/iphone2dslr_flower/testA
+RUN rm -rf ./datasets/iphone2dslr_flower/testB
+RUN rm -rf ./datasets/iphone2dslr_flower/trainA
+RUN rm -rf ./datasets/iphone2dslr_flower/trainB
 RUN mkdir ./datasets/iphone2dslr_flower/testA
 RUN rm -rf ./datasets/monet2photo/testA
+RUN rm -rf ./datasets/monet2photo/testB
+RUN rm -rf ./datasets/monet2photo/trainA
+RUN rm -rf ./datasets/monet2photo/trainB
 RUN mkdir ./datasets/monet2photo/testA
 RUN rm -rf ./datasets/summer2winter_yosemite/testA
+RUN rm -rf ./datasets/summer2winter_yosemite/testB
+RUN rm -rf ./datasets/summer2winter_yosemite/trainA
+RUN rm -rf ./datasets/summer2winter_yosemite/trainB
 RUN mkdir ./datasets/summer2winter_yosemite/testA
 RUN rm -rf ./datasets/maps/test
+RUN rm -rf ./datasets/maps/testA
+RUN rm -rf ./datasets/maps/trainB
+RUN rm -rf ./datasets/maps/val
+RUN rm -rf ./datasets/maps/vaA
+RUN rm -rf ./datasets/maps/valB
 RUN mkdir ./datasets/maps/test
 RUN rm -rf ./datasets/facades/test
+RUN rm -rf ./datasets/facades/testA
+RUN rm -rf ./datasets/facades/testB
+RUN rm -rf ./datasets/facades/train
+RUN rm -rf ./datasets/facades/trainA
+RUN rm -rf ./datasets/facades/trainB
+RUN rm -rf ./datasets/facades/val
 RUN mkdir ./datasets/facades/test
 RUN rm -rf ./datasets/night2day/test
+RUN rm -rf ./datasets/night2day/train
+RUN rm -rf ./datasets/night2day/val
 RUN mkdir ./datasets/night2day/test
 
 
