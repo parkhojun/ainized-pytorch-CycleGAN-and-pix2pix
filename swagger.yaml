@@ -1,0 +1,107 @@
+openapi: 3.0.1
+info:
+  title: ainized-pytorch-CycleGAN-and-pix2pix
+  description: '  '
+  contact:
+    email: mara8534@gmail.com
+  version: 1.0.0
+externalDocs:
+  url: 'https://paperswithcode.com/paper/image-to-image-translation-with-conditional'
+servers:
+  - url: 'https://35.243.110.222:80'
+  - url: 'https://ainize.ai/project/parkhojun/ainized-pytorch-cyclegan-and-pix2pix'
+
+tags:
+- name: CycleGAN
+- name: pix2pix
+
+
+paths:
+  /eval/cyclegan:
+    post: 
+      tags:
+      - CycleGAN
+      summary: CycleGAN를 수행합니다.
+      parameters: 
+      - name: option
+        in: query
+        description: BLAHBLAHBLAHBLAH
+        required: true
+        allowEmptyValue: false
+        explode: false
+        schema:
+          type: string
+          default: apple2orange
+          enum:
+          - apple2orange
+          - summer2winter_yosemite
+          - horse2zebra
+          - monet2photo
+          - iphone2dslr_flower
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: 이미지를 받습니다.
+          content:
+            images/*:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request (File Not Uploaded)
+        '500':
+          description: Server Side Error (Model Test Error, File Move Error)
+        
+        
+        
+  /eval/pix2pix:
+    post: 
+      tags:
+      - pix2pix
+      summary: Pix2Pix를 수행합니다.
+      parameters: 
+      - name: option
+        in: query
+        description: BLAHBLAHBLAHBLAH
+        required: true
+        allowEmptyValue: false
+        explode: false
+        schema:
+          type: string
+          default: maps
+          enum:
+          - maps
+          - facades
+          - day2night
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: 이미지를 받습니다.
+          content:
+            images/*:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request (File Not Uploaded)
+        '500':
+          description: Server Side Error (Model Test Error, File Move Error)
+  
+  
+  
