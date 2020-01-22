@@ -45,7 +45,7 @@ The image to be evaluated needs to be published first. You can refer to the two 
 4. Click Execute and wait, then you see a result than translated image.
 <img src="./imgs/img1.png" align="middle" width="400" />
 
-<img src="./imgs/rimg2.png" align="middle" width="400" />
+<img src="./imgs/img2.png" align="middle" width="400" />
 
 The result is like this.
 
