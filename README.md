@@ -1,3 +1,63 @@
+# Ainized-pytorch-CycleGAN-and-pix2pix
+
+[![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/parkhojun/ainized-pytorch-CycleGAN-and-pix2pix.git)
+
+https://hojunpark.substack.com/p/cyclegan-and-pix2pix-run-on-ainizeengkor
+
+
+This repository providers a server that advances unpaired and paired image-to-image translation. based on a GAN model.
+
+The model used in the server is from junyanz/pytorch-CycleGAN-and-pix2pix/git which is paper from "Image-to-Image Translation with Conditional Adversarial Networks".
+
+
+The inference using server is done in the following steps:
+
+1. User publishes an image files.
+2. server returns a result that translated image. Note that the server is implemented in Node.js.
+
+
+# How to deploy
+this server is dockerized, so it can be built and run using docker commands.
+
+# Docker build
+```
+docker build -t mara8534/ainized-pytorch-cyclegan-and-pix2pix .
+```
+
+# Docker run
+```
+docker run -p 80:80 -it mara8534/ainized-pytorch-cyclegan-and-pix2pix
+```
+Now the server is available at http://localhost:80.
+
+Note that the docker image can be deployed using any docker-based deploy platform (e.g. ainize.ai).
+
+You can see the demo server from below site
+https://endpoint.ainize.ai/parkhojun/ainized-pytorch-cyclegan-and-pix2pix/
+
+# How to publish an image file
+
+The image to be evaluated needs to be published first. You can refer to the two following examples of how to publish image files:
+
+1. Select Sever
+2. Select CycleGAN or Pix2Pix
+3. Select Try it out and Option, File taht you want.
+4. Click Execute and wait, then you see a result than translated image.
+<img src="./imgs/img1.png" align="middle" width="400" />
+
+<img src="./imgs/rimg2.png" align="middle" width="400" />
+
+The result is like this.
+
+<img src="./imgs/img3.png" align="middle" width="400" />
+
+# References
+1. https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+
+--------
+
+
+
 <img src='imgs/horse2zebra.gif' align="right" width=384>
 
 <br><br><br>
