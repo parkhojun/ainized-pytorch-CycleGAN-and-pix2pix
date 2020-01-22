@@ -4,7 +4,7 @@ info:
   description: "**This repository providers a server that advances unpaired and paired image-to-image translation based on a GAN model.
 The model used in the server is from junyanz/pytorch-CycleGAN-and-pix2pix/git which is paper from Image-to-Image Translation with Conditional Adversarial Networks.**"
   contact:
-    name: Ainized by Parkhojun
+    name: Ainizer - Parkhojun
     email: mara8534@gmail.com
   version: 1.0.0
   license:
