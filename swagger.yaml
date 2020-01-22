@@ -1,12 +1,20 @@
 openapi: 3.0.1
 info:
-  title: ainized-pytorch-CycleGAN-and-pix2pix
-  description: '  '
+  title: Ainized-pytorch-CycleGAN-and-pix2pix
+  description: "**This repository providers a server that advances unpaired and paired image-to-image translation based on a GAN model.
+The model used in the server is from junyanz/pytorch-CycleGAN-and-pix2pix/git which is paper from Image-to-Image Translation with Conditional Adversarial Networks.**"
   contact:
+    name: Ainized by Parkhojun
     email: mara8534@gmail.com
   version: 1.0.0
+  license:
+    name: Original author - junyanz
+    url: https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 externalDocs:
+  description: "PapersWithCode: Image to Image translation with Conditional."
   url: 'https://paperswithcode.com/paper/image-to-image-translation-with-conditional'
+
+  
 servers:
   - url: 'https://516360d3.ngrok.io'
   - url: 'http://34.85.42.255:80'
@@ -14,7 +22,9 @@ servers:
 
 tags:
 - name: CycleGAN
+  description: Use CycleGAN model to Image-to-Image Translation
 - name: pix2pix
+  description: Use CycleGAN model to Image-to-Image Translation
 
 
 paths:
@@ -22,17 +32,16 @@ paths:
     post: 
       tags:
       - CycleGAN
-      summary: CycleGAN를 수행합니다.
+      summary: Perform CycleGAN to the photos uploaded to the selected model.
       parameters: 
       - name: option
         in: query
-        description: apple2orange, summer2winter_yosemite ,horse2zebra, monet2photo, iphone2dslr_flower 옵션에 대해 image translation을 실행합니다.
+        description: "**Select the ImageTranslationModel**"
         required: true
         allowEmptyValue: false
         explode: false
         schema:
           type: string
-          default: apple2orange
           enum:
           - apple2orange
           - summer2winter_yosemite
@@ -40,17 +49,18 @@ paths:
           - monet2photo
           - iphone2dslr_flower
       requestBody:
+        description: "**REQUIREMENT - ENGLISH FILENAME PLEASE**"
         content:
           multipart/form-data:
             schema:
               type: object
               properties:
-                files:
+                files:  # TODO: files -> file (CODE CHANGE NECESSARY!)
                   type: string
                   format: binary
       responses:
         '200':
-          description: 이미지를 받습니다.
+          description: Succesfully Translated Image.
           content:
             images/*:
               schema:
@@ -67,11 +77,11 @@ paths:
     post: 
       tags:
       - pix2pix
-      summary: Pix2Pix를 수행합니다.
+      summary: Perform CycleGAN to the photos uploaded to the selected model.
       parameters: 
       - name: option
         in: query
-        description: map2sat, facades_label2photo, day2night옵션에 대해 image translation을 실행합니다.
+        description: "**Select the ImageTranslationModel**"
         required: true
         allowEmptyValue: false
         explode: false
@@ -81,8 +91,9 @@ paths:
           enum:
           - maps
           - facades
-          - day2night
+          - night2day
       requestBody:
+        description: "**REQUIREMENT - ENGLISH FILENAME PLEASE**"
         content:
           multipart/form-data:
             schema:
@@ -93,7 +104,7 @@ paths:
                   format: binary
       responses:
         '200':
-          description: 이미지를 받습니다.
+          description: Succesfully Translated Image.
           content:
             images/*:
               schema:
