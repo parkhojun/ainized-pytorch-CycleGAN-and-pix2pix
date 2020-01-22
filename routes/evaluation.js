@@ -144,7 +144,7 @@ router.post('/pix2pix', upload.array('files', 1), (req, res, next) => {
                     res.status(500);
                     res.json({"status": "ml test error"});
                     // FIXME: TEST ERROR!!!!!!
-                    //console.log(error)
+                    console.log(error)
                 }
             });
         })

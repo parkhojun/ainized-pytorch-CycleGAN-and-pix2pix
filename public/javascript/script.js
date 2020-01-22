@@ -144,32 +144,4 @@ window.onload = () => {
         };
         xhr.send(null);
     }
-/*
-    function fetchEvalSingle(event) {
-        event.preventDefault();
-        start_timer();
-
-        const image = event.target.value;
-
-        const xhr = new XMLHttpRequest();
-        xhr.timeout = 1000 * 3000;
-        xhr.open("GET", encodeURI(`/eval/${image}`), true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onreadystatechange = () => {
-            stop_timer();
-            clearInterval(timer);
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                console.log(data);
-                
-                document.getElementById("log").innerText = xhr.responseText;
-                document.getElementById('rimg').src = `sample_output/cropped_images/${image}`;
-
-                // document.getElementById("result").style.display = "block";
-                // document.getElementById("log").innerText = xhr.responseText;
-            }
-        };
-        xhr.send(null);
-    }
-*/
 };

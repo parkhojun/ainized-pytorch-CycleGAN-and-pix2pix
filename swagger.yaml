@@ -8,7 +8,8 @@ info:
 externalDocs:
   url: 'https://paperswithcode.com/paper/image-to-image-translation-with-conditional'
 servers:
-  - url: 'https://35.243.110.222:80'
+  - url: 'https://516360d3.ngrok.io'
+  - url: 'http://34.85.42.255:80'
   - url: 'https://ainize.ai/project/parkhojun/ainized-pytorch-cyclegan-and-pix2pix'
 
 tags:
@@ -25,7 +26,7 @@ paths:
       parameters: 
       - name: option
         in: query
-        description: BLAHBLAHBLAHBLAH
+        description: apple2orange, summer2winter_yosemite ,horse2zebra, monet2photo, iphone2dslr_flower 옵션에 대해 image translation을 실행합니다.
         required: true
         allowEmptyValue: false
         explode: false
@@ -70,7 +71,7 @@ paths:
       parameters: 
       - name: option
         in: query
-        description: BLAHBLAHBLAHBLAH
+        description: map2sat, facades_label2photo, day2night옵션에 대해 image translation을 실행합니다.
         required: true
         allowEmptyValue: false
         explode: false
