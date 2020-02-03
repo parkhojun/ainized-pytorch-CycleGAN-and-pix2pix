@@ -37,7 +37,7 @@ https://endpoint.ainize.ai/parkhojun/ainized-pytorch-cyclegan-and-pix2pix/
 
 # How to publish an image file
 
-The image to be evaluated needs to be published first. You can refer to the two following examples of how to publish image files:
+The image to be evaluated needs to be published first. You can refer to the four following examples of how to publish image files:
 
 1. Select Sever
 2. Select CycleGAN or Pix2Pix
