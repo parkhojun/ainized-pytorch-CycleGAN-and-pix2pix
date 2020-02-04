@@ -2,7 +2,7 @@
 
 [![Run on Ainize](https://ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/parkhojun/ainized-pytorch-CycleGAN-and-pix2pix.git)
 
-https://hojunpark.substack.com/p/cyclegan-and-pix2pix-run-on-ainizeengkor
+https://hojunpark.substack.com/p/cyclegan-and-pix2pix-run-on-ainizeengkor-643
 
 
 This repository providers a server that advances unpaired and paired image-to-image translation. based on a GAN model.
